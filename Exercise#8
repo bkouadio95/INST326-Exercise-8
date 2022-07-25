@@ -1,0 +1,77 @@
+"""
+Name: Emmanuel Sitaniapessy / Betty Kouadio
+Directory ID: esitania / bkouadio
+Assignment: Exercise 8
+"""
+
+class Pizza():
+    """
+    Holds the info for the whole pizza.
+    Attributes:
+        toppings: the toppings on the pizza.
+    """
+
+    def __init__(self):
+        """
+        Initializes the toppings list.
+        Args:
+            None
+        Return:
+            None
+        """
+        self.toppings = []
+
+    def add_topping(self, topping):
+        """
+        Adds toppings to the pizza if there are no more than 7 toppings already on it.
+        Args:
+            topping(str): the requested topping.
+        Return:
+            None
+        """
+        if len(self.toppings) >= 7: #checking to see if there are more than 7 toppings already on the pizza
+            print("You cannot add more than 7 toppings!")
+        else:
+            self.toppings.append(topping)
+
+class Topping():
+    """
+    Holds the info for the individual toppings.
+    Attributes:
+        name(str): The requested topping.
+        num_pieces(int): Quantity of the requested topping.
+    """
+
+    def __init__(self, name, num_pieces):
+        """
+        Initializes the toppings list
+        Args:
+            name(str): the requested toppings.
+            num_pieces(int): the quantity of the specified topping.
+        Return:
+            None
+        """
+        self.name = name
+        self.num_pieces = num_pieces
+
+    def __repr__(self):
+        """
+        Prints the total number of toppings and quantity of each topping.
+        Args:
+            None
+        Return:
+            Statement with the toppings and quantity of each topping.
+        """
+        return "{} pieces of {}".format(self.num_pieces, self.name)
+
+if __name__ == "__main__":
+    pizza = Pizza()
+    pizza.add_topping(Topping("pepperoni", 20))
+    pizza.add_topping(Topping("sausage", 15))
+    pizza.add_topping(Topping("ham", 10))
+    pizza.add_topping(Topping("bacon", 20))
+    pizza.add_topping(Topping("spinach", 15))
+    pizza.add_topping(Topping("anchovies", 10))
+    pizza.add_topping(Topping("olives", 10))
+    pizza.add_topping(Topping("extra_cheese", 1)) #eighth topping to check ig program runs correctly
+    print(pizza.toppings)
